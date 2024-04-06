@@ -756,3 +756,5 @@
 // };
 // let nums = [0,0]
 // console.log(findMaxConsecutiveOnes(nums))
+
+// https://www.codewars.com/kata/57eb8fcdf670e99d9b000272/train/javascript
