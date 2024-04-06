@@ -758,3 +758,25 @@
 // console.log(findMaxConsecutiveOnes(nums))
 
 // https://www.codewars.com/kata/57eb8fcdf670e99d9b000272/train/javascript
+// function high(word=''){
+//     const alphabets = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L','M', 'N', 'O', 'P', 'Q', 'R',  'S', 'T', 'U', 'V', 'W', 'X','Y', 'Z' ]
+//     let scoreAlphabet = {}
+//     alphabets.forEach((alphabet,index)=>{
+//         scoreAlphabet[alphabet.toLowerCase()] = index+1
+//     })
+//     let words = word.split(' ')
+//     let scors = []
+//     let counterScore = 0
+//     for(let word of words){
+//         if(counterScore){scors.push(counterScore)}
+//         counterScore = 0
+//         for(let letter of word.split('')){
+//             counterScore+= scoreAlphabet[letter.toLowerCase()]
+//         }
+//         if(scors.length === words.length-1){
+//             scors.push(counterScore)
+//         }
+//     }
+//     return words[scors.indexOf(Math.max(...scors))]
+// }
+// console.log(high('what time are we climbing up the volcano'));
