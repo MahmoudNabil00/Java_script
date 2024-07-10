@@ -780,3 +780,214 @@
 //     return words[scors.indexOf(Math.max(...scors))]
 // }
 // console.log(high('what time are we climbing up the volcano'));
+
+
+//  https://www.codewars.com/kata/52685f7382004e774f0001f7/train/javascript --------
+
+//My Solution : ------
+// function humanReadable (seconds) {
+//     if(seconds===0) return '00:00:00'
+//     let sec  = 0
+//     let min = 0
+//     let hrs = 0
+//     if((seconds/60) >= 1){
+//         sec = (seconds%60)
+//         min = (seconds - sec) / 60
+//         if(min >= 60){ 
+//             let totalMinutes = (seconds - sec) / 60
+//             min = totalMinutes % 60
+//             hrs = (totalMinutes-min)/60
+//             return `'${hrs >=10 ? hrs : '0'+hrs}:${min >=10 ? min : '0'+min}:${sec >=10 ? sec : '0'+sec}'`;
+//         }else{
+//             return `'${hrs >=10 ? hrs : '0'+hrs}:${min >=10 ? min : '0'+min}:${sec >=10 ? sec : '0'+sec}'`;
+//         }
+//     }else{
+//         sec = seconds
+//         return `'${hrs >=10 ? hrs : '0'+hrs}:${min >=10 ? min : '0'+min}:${sec >=10 ? sec : '0'+sec}'`;
+//     }
+//   } 
+
+// chatGPT Solution : ----
+// function humanReadable(seconds) {
+//     let sec = seconds % 60;
+//     let min = Math.floor(seconds / 60) % 60;
+//     let hrs = Math.floor(seconds / 3600);
+    
+//     return `${hrs < 10 ? '0' + hrs : hrs}:${min < 10 ? '0' + min : min}:${sec < 10 ? '0' + sec : sec}`;
+// }
+// console.log(humanReadable(44683 ))
+
+
+
+//https://www.codewars.com/kata/515bb423de843ea99400000a/train/javascript------
+
+
+//  code here ....
+
+
+
+// https://leetcode.com/problems/excel-sheet-column-title/ 
+
+// var convertToTitle = function(columnNumber) {
+//     let letters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+//     let basicCharacter = letters[columnNumber%26-1] || 'Z'
+//     let resultArr = []
+//     let minimizeNumber = Math.floor(columnNumber/26)
+//     if(minimizeNumber<=26) return `${basicCharacter}`
+//     // new level
+//     if(minimizeNumber>=26){
+//         // while(true){
+    
+//         // }
+//     }else{
+//         return `${letters[minimizeNumber-1]}${basicCharacter}`
+//     }
+
+// };
+// console.log(convertToTitle(26))
+
+
+//-------------------------https://leetcode.com/problems/longest-common-prefix/description/----------------------------
+
+// var longestCommonPrefix = function(words) {
+//     let prefixResult = '';
+//     if (words.length === 0) return '';
+//     if (words.length === 1) return words[0];
+//     for (let j = 0; j < words[0].length; j++) {
+//         let letter = words[0].split('')[j]
+//         loop2: for(let i=1;i<words.length;i++){
+//             if(words[i][j]==letter){
+//                 if(i==words.length-1){
+//                     prefixResult+=letter
+//                 }
+//             }else{
+//                 return prefixResult
+//             }
+            
+//         }
+//     }
+//     return prefixResult
+
+// };
+// let test = ["cir","car"]
+// console.log(longestCommonPrefix(test))
+
+
+// var longestCommonPrefix = function(words) {
+//     if (words.length === 0) return '';
+//     if (words.length === 1) return words[0];
+    
+//     let prefix = '';
+//     for (let i = 0; i < words[0].length; i++) {
+//         const char = words[0][i];
+//         for (let j = 1; j < words.length; j++) {
+//             if (i >= words[j].length || words[j][i] !== char) {
+//                 return prefix;
+//             }
+//         }
+//         prefix += char;
+//     }
+//     return prefix;
+// };
+
+// console.log(longestCommonPrefix(test))
+
+
+// https://leetcode.com/problems/longest-palindrome/description/  : ----------
+
+//-/-/-/-/-/-/-/409. Longest Palindrome-/-/-/-/-/-/-/-/-/-/-/
+/**
+ * @param {string} s
+ * @return {number}
+ */
+
+// var longestPalindrome = function(s) {
+//     let lettersHash = {}
+//     let longestPalindrome = 0
+//     hasOdd = false
+//     if(s.length==1) return 1
+//     if(s.length==2 && s[0]==s[1]) return 2
+//     s.split('').forEach((letter,index)=>{
+//         if(lettersHash[letter]){
+//             lettersHash[letter] = lettersHash[letter] + 1
+//         }else{
+//             lettersHash[letter] = 1
+//         }
+//     })
+//     Object.values(lettersHash).forEach(value=> {
+//         if(value % 2 != 0){hasOdd = true}
+//         if(value>1){
+//             longestPalindrome += Math.floor(value/2)
+//         }
+//     })
+//     return hasOdd ? longestPalindrome*2 + 1 : longestPalindrome*2 
+// };
+
+// console.log(longestPalindrome('aaabsq'))
+
+
+
+// solve this : https://www.geeksforgeeks.org/java-program-count-number-palindrome-words-sentence/
+
+/** 
+    @param {string} text
+    @return {number}    
+*/
+// function countingPalindromeWords(text){
+//     let splittedArray = text.split(' ').map(ele=>ele.toLowerCase())
+//     let counter = 0
+//     for (let word of splittedArray) {
+//         let arrLetters = word.split('')
+//         secondLoop: for (let fIndex = 0 , lIndex = arrLetters.length - 1 ; fIndex < arrLetters.length; fIndex++,lIndex--) {
+//             let fLetter = arrLetters[fIndex];
+//             let lLetter = arrLetters[lIndex];
+//             if(fLetter != lLetter){
+//                 break secondLoop
+//             }
+//             if(arrLetters.length%2==0 && fIndex==arrLetters.length-1){
+//                 counter += 1
+//             }
+//             if(arrLetters.length%2!=0 && fIndex==lIndex){
+//                 counter += 1
+//             }   
+//         }
+//     }
+//     return counter
+// }
+// console.log(countingPalindromeWords('Nitin speaks malayalam radar raar radar radar'))
+
+// var isPalindrome = function(text) {
+//     text = text.toString()
+//     if(text.length <= 1) return true;
+//     for(let f=0,l=text.length-1;f<l;f++,l--){
+//         console.log(text[f],text[l]);
+//         if(text[f]!=text[l]){
+//             return false
+//         }
+//     }
+//     return true
+// };
+// console.log(isPalindrome(123))
+
+
+// - - - - - - - - - - - - - - - - - -  https://leetcode.com/problems/remove-element/ - - - - - - - - - - - - - - - - - - - - - - -
+//0* In Place Algorithm */
+/**
+ * @param {number[]} nums //the size is not important as well the remaining elements 
+ * @param {number} val
+ * @return {number}
+ */
+
+// var removeElement = function(nums, val) {
+//     let k = 0  //stateName
+//     nums.forEach((n,i)=>{
+//         if(n != val){
+//             nums[k] = n
+//             k++
+//         }
+//     })
+//     return k
+// };
+// let arr = [0,1,2,2,3,0,4,2]
+// let val = 2
+// console.log(removeElement(arr,val))

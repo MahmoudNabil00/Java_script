@@ -9,8 +9,8 @@ function digitalClock(){
     clock.innerHTML = time
 }
 
-setInterval(()=>{
+setInterval(()=>{ 
     digitalClock()
-},1000)
+},1000)     
 
 //---------------------------------------------------------------------------------------
